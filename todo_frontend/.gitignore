@@ -9,7 +9,7 @@
 /coverage
 
 # production
-/build
+# /build DISABLED FOR UPLOADING THE PRODUCTION FILE TO GITHUB
 
 # misc
 .DS_Store
