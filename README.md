@@ -1,6 +1,7 @@
 # Django & React ToDo List App
 
 > This project is a practice personal project to learn Django REST Framework & React integration. This [README.md](http://readme.md) serves is a study note.
+> Live demo: http://amon0925.pythonanywhere.com/
 
 ### Set up Django
 
