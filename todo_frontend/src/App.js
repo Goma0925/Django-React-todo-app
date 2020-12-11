@@ -32,7 +32,9 @@ class App extends React.Component{
       .then(response => response.json())
       .then(data => this.setState(
         {todoList: data}
-      ));
+    )).catch(()=>{
+      window.alert("Connection to server failed.");
+    });
   }
 
   handleChange(e){
@@ -51,7 +53,6 @@ class App extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    window.alert("Hello");
     var url = "http://127.0.0.1:8000/api/task-create";
 
     //Change API URL in case of editing.
@@ -114,9 +115,8 @@ class App extends React.Component{
   }
 
   strikeUnstrike(task){
-    console.log("strikeUnstrike");
+    console.log("Strike/Unstrike");
     task.completed = !task.completed
-    console.log(task.completed);
     var url = `http://127.0.0.1:8000/api/task-update/${task.id}/`
     fetch(
       url,
