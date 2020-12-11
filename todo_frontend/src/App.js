@@ -4,6 +4,7 @@ import './App.css';
 class App extends React.Component{
   constructor(props){
     super(props);
+    this.task_api_url = "amon0925.pythonanywhere.com"
     this.state = {
       todoList:[],
       activeItem: {
@@ -27,8 +28,8 @@ class App extends React.Component{
   }
 
   fetchTasks(){
-    console.log("Fetching...");
-    fetch("http://127.0.0.1:8000/api/task-list")
+    console.log("Fetching latest data from server:" + this.task_api_url);
+    fetch(this.task_api_url+"/api/task-list")
       .then(response => response.json())
       .then(data => this.setState(
         {todoList: data}
@@ -41,8 +42,6 @@ class App extends React.Component{
     //Trigger when the form is changed
     var name = e.target.name;
     var value = e.target.value;
-    console.log(value);
-    console.log(name);
     this.setState({
       activeItem: {
         ...this.state.activeItem, //@ Update Child state
@@ -53,11 +52,11 @@ class App extends React.Component{
 
   handleSubmit(e){
     e.preventDefault();
-    var url = "http://127.0.0.1:8000/api/task-create";
+    var url = this.task_api_url+"/api/task-create";
 
     //Change API URL in case of editing.
     if (this.state.editing){
-      url = `http://127.0.0.1:8000/api/task-update/${this.state.activeItem.id}/`;
+      url = this.task_api_url+`/api/task-update/${this.state.activeItem.id}/`;
       this.setState({
         editing: false
       })
@@ -97,7 +96,7 @@ class App extends React.Component{
   }
 
   deleteItem(task){
-    var url = `http://127.0.0.1:8000/api/task-delete/${task.id}/`
+    var url =  this.task_api_url+ `/api/task-delete/${task.id}/`
     fetch(
       url,
       {
@@ -117,7 +116,7 @@ class App extends React.Component{
   strikeUnstrike(task){
     console.log("Strike/Unstrike");
     task.completed = !task.completed
-    var url = `http://127.0.0.1:8000/api/task-update/${task.id}/`
+    var url = this.task_api_url+`/api/task-update/${task.id}/`
     fetch(
       url,
       {

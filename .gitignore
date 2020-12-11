@@ -9,3 +9,5 @@ media
 # Backup files #
 *.bak
 /venv/
+
+todo_frontend/.eslintcache
