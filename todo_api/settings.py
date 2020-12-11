@@ -24,9 +24,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '1rp^2@uio_$2p)$s(sv2x5#1ob^5a)4%$tnm)sdx39n7vo*%j6'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "amon0925.pythonanywhere.com"
+]
 
 
 # Application definition
