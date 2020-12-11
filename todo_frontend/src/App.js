@@ -28,7 +28,7 @@ class App extends React.Component{
   }
 
   fetchTasks(){
-    console.log("Fetching...");
+    console.log("Fetching latest data from server:" + this.task_api_url);
     fetch(this.task_api_url+"/api/task-list")
       .then(response => response.json())
       .then(data => this.setState(
@@ -42,8 +42,6 @@ class App extends React.Component{
     //Trigger when the form is changed
     var name = e.target.name;
     var value = e.target.value;
-    console.log(value);
-    console.log(name);
     this.setState({
       activeItem: {
         ...this.state.activeItem, //@ Update Child state
@@ -98,7 +96,7 @@ class App extends React.Component{
   }
 
   deleteItem(task){
-    var url =  this.this.task_api_url+ `/api/task-delete/${task.id}/`
+    var url =  this.task_api_url+ `/api/task-delete/${task.id}/`
     fetch(
       url,
       {
