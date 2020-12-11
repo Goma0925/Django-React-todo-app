@@ -4,7 +4,7 @@ import './App.css';
 class App extends React.Component{
   constructor(props){
     super(props);
-    this.task_api_url = "amon0925.pythonanywhere.com"
+    this.task_api_url = ""
     this.state = {
       todoList:[],
       activeItem: {
