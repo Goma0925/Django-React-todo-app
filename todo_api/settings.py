@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'todo_api.urls'
@@ -128,4 +129,10 @@ STATIC_URL = '/static/'
 #IMPORTANT for serving React files
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'todo_frontend/build/static'),
+]
+
+
+# White list of URLs for cors headers plugin #IMPORTANT
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
 ]
